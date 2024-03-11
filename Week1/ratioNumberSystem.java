@@ -14,10 +14,21 @@ class Result {
      * The function accepts INTEGER_ARRAY arr as parameter.
      */
 
-    public static void plusMinus(List<Integer> arr) {
-    // Write your code here
-
+   public static void plusMinus(List<Integer> arr) {
+    int pos = 0, neg = 0, zer = 0, n = arr.size();
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr.get(i) > 0) {
+            pos++;
+        } else if (arr.get(i) < 0) {
+            neg++;
+        } else {
+            zer++;
+        }
     }
+    System.out.printf("%8.6f\n", (double) pos / n);
+    System.out.printf("%8.6f\n", (double) neg / n);
+    System.out.printf("%8.6f\n", (double) zer / n);
+}
 
 }
 
