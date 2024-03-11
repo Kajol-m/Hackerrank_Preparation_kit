@@ -14,10 +14,24 @@ class Result {
      * The function accepts INTEGER_ARRAY arr as parameter.
      */
 
-    public static void plusMinus(List<Integer> arr) {
-    // Write your code here
+    public static void miniMaxSum(List<Integer> arr) {
+    long minSum = Long.MAX_VALUE;
+    long maxSum = Long.MIN_VALUE;
+    int n = arr.size();
 
+    for (int i = 0; i < n; i++) {
+        long sum = 0;
+        for (int j = 0; j < n; j++) {
+            if (i != j) {
+                sum += arr.get(j);
+            }
+        }
+        minSum = Math.min(minSum, sum);
+        maxSum = Math.max(maxSum, sum);
     }
+
+    System.out.println(minSum + " " + maxSum);
+}
 
 }
 
