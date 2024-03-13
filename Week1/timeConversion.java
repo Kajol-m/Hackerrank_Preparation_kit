@@ -16,9 +16,21 @@ class Result {
      */
 
     public static String timeConversion(String s) {
-    // Write your code here
+    String[] timeParts = s.substring(0, 8).split(":");
+    int hours = Integer.parseInt(timeParts[0]);
+    int minutes = Integer.parseInt(timeParts[1]);
+    int seconds = Integer.parseInt(timeParts[2].substring(0, 2));
+    String amPm = s.substring(8);
 
+    if (amPm.equals("AM") && hours == 12) {
+        hours = 0;
+    } else if (amPm.equals("PM") && hours != 12) {
+        hours += 12;
     }
+
+    return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+}
+
 
 }
 
